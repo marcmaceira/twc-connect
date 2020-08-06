@@ -13,17 +13,26 @@
     </div>
     <div class="container">
         <h2 class="text-center title">Happy Hour</h2>
+        <br>
         <div class="row">
-            {% for a, b, c in event %}
-                <div class="col-lg-4 col-sm-12">
-                    <div class="card">
-                        <div class="card-body">
-                            <h5><strong>{{a}}</strong></h5>
-                            <h6>Time: {{b}}</h6>
-                            <h6>Location: {{c}}</h6>
+            {% for a, b, c, d in event %}
+                <div class="col-lg-6 col-sm-12">
+                    <div class="card mb-3 shadow p-3 mb-5 bg-white rounded">
+                        <div class="row no-gutters">
+                            <div class="col-md-4">
+                                <img style="height: 100%; width: 100%; object-fit: cover" src="{{d}}" class="card-img">
+                            </div>
+                            <div class="col-md-8">
+                                <div class="card-body">
+                                    <h5 class="card-title">{{a}}</h5>
+                                    <ul class="list-unstyled">
+                                        <li><strong>Time:</strong> {{b}}</li>
+                                        <li><strong>Location:</strong> {{c}}</li>
+                                    </ul>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    <br>
                 </div>
             {% endfor %}
         </div>

@@ -8,10 +8,13 @@ event_soup = BeautifulSoup(event_r.content, 'html.parser')
 event_title_div = event_soup.find_all("div", {"class":"eds-is-hidden-accessible"})
 event_time_div = event_soup.find_all("div", {"class":"eds-text-color--primary-brand eds-l-pad-bot-1 eds-text-weight--heavy eds-text-bs"})
 event_location_div = event_soup.find_all("div", {"class":"card-text--truncated__one"})
-
+event_image_div = event_soup.find_all("img", {"class": "eds-event-card-content__image"})
+event_url_div = event_soup.find_all("a", {"class": "eds-event-card-content__action-link"})
 event_name = []
 event_time = []
 event_location = []
+event_image = []
+event_url = []
 
 for th in event_title_div:
     event_name.append(th.text)
@@ -28,9 +31,17 @@ for e_location in event_location_div:
 
 del event_location[::2]
 
+for img in event_image_div:
+    event_image.append(img.get('data-src'))
+
+del event_image[::2]
+
+for a in event_url_div:
+    event_url.append(a.get('href'))
+
 test = [[event_name], [event_time], [event_location]]
 
-x = list(zip(event_name, event_time, event_location))
+x = list(zip(event_name, event_time, event_location, event_image))
 
 def index(req):
     return render(req, 'events/index.html', {'event':x})
