@@ -7,7 +7,7 @@
 <body>
     <div class="jumbotron">
         <center><h1>TWC Connect</h1>
-           <a href="/" class="btn btn-primary">Refresh Events</a>
+            <a href="/" class="btn btn-primary">Refresh Events</a>
         </form>
     </center>
     </div>
@@ -15,7 +15,7 @@
         <h2 class="text-center title">Happy Hour</h2>
         <br>
         <div class="row">
-            {% for a, b, c, d in event %}
+            {% for a, b, c, d, e in event %}
                 <div class="col-lg-6 col-sm-12">
                     <div class="card mb-3 shadow p-3 mb-5 bg-white rounded">
                         <div class="row no-gutters">
@@ -29,6 +29,7 @@
                                         <li><strong>Time:</strong> {{b}}</li>
                                         <li><strong>Location:</strong> {{c}}</li>
                                     </ul>
+                                    <a class="btn btn-primary" href="{{e}}" role="button">Open Event</a>
                                 </div>
                             </div>
                         </div>
