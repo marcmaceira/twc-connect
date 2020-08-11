@@ -21,7 +21,8 @@ from django.http import HttpResponse
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', views.index, name = "home"),
-    # path('happy-hour/', include('events.urls')),
+    path('', views.index),
+    path('happy-hour/', views.happyHour),
+    path('government/', views.government),
     url(r'^robots.txt', lambda x: HttpResponse("User-Agent: *\nDisallow: /", content_type="text/plain"), name="robots_file"),
 ]
