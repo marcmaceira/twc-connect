@@ -22,7 +22,11 @@ from django.http import HttpResponse
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.index),
-    path('happy-hour/', views.happyHour),
+    path('arts/', views.arts),
+    path('business/', views.business),
+    path('food-and-drink/', views.food),
     path('government/', views.government),
+    path('happy-hour/', views.happyHour),
+    path('science-and-tech/', views.stem),
     url(r'^robots.txt', lambda x: HttpResponse("User-Agent: *\nDisallow: /", content_type="text/plain"), name="robots_file"),
 ]

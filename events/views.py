@@ -5,13 +5,26 @@ from bs4 import BeautifulSoup
 def index(req):
     return render(req, 'events/index.html')
 
-def happyHour(req):
-    event_r = requests.get("https://www.eventbrite.com/d/dc--washington/free--food-and-drink--events--this-week/happy-hour/?page=1")
+def arts(req):
+    event_r = requests.get("https://www.eventbrite.com/d/dc--washington/free--arts--events--this-week/?page=1")
     event_soup = BeautifulSoup(event_r.content, 'html.parser')
 
     eventbrite = getEvent(event_soup)
-    return render(req, 'events/happy-hour.html', {'events':eventbrite})
+    return render(req, 'events/arts.html', {'events':eventbrite})
 
+def business(req):
+    event_r = requests.get("https://www.eventbrite.com/d/dc--washington/free--business--events--this-week/?page=1")
+    event_soup = BeautifulSoup(event_r.content, 'html.parser')
+
+    eventbrite = getEvent(event_soup)
+    return render(req, 'events/business.html', {'events':eventbrite})
+
+def food(req):
+    event_r = requests.get("https://www.eventbrite.com/d/dc--washington/free--food-and-drink--events--this-week/?page=1")
+    event_soup = BeautifulSoup(event_r.content, 'html.parser')
+
+    eventbrite = getEvent(event_soup)
+    return render(req, 'events/food-and-drink.html', {'events':eventbrite})
 
 def government(req):
     event_r = requests.get("https://www.eventbrite.com/d/dc--washington/free--government--events--this-month/?page=1")
@@ -19,6 +32,20 @@ def government(req):
 
     eventbrite = getEvent(event_soup)
     return render(req, 'events/government.html', {'events':eventbrite})
+
+def happyHour(req):
+    event_r = requests.get("https://www.eventbrite.com/d/dc--washington/free--food-and-drink--events--this-week/happy-hour/?page=1")
+    event_soup = BeautifulSoup(event_r.content, 'html.parser')
+
+    eventbrite = getEvent(event_soup)
+    return render(req, 'events/happy-hour.html', {'events':eventbrite})
+
+def stem(req):
+    event_r = requests.get("https://www.eventbrite.com/d/dc--washington/free--science-and-tech--events--this-week/?page=1")
+    event_soup = BeautifulSoup(event_r.content, 'html.parser')
+
+    eventbrite = getEvent(event_soup)
+    return render(req, 'events/science-and-tech.html', {'events':eventbrite})
 
 def getEvent(soup):
     # Create list for events
