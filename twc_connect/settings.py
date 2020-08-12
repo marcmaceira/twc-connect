@@ -27,7 +27,7 @@ SECRET_KEY = '$q+w&$*0(v2_w35p8@8_f=kpf)pp5)rjp=@k-we-ln*w@ocv#&'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['https://twc-connect.herokuapp.com/']
+ALLOWED_HOSTS = ['https://twc-connect.herokuapp.com/', 'https://twc-connect.me/']
 
 SECURE_SSL_REDIRECT = True
 
