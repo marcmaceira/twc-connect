@@ -3,44 +3,48 @@
 <head>
     {% load static %}
     <title>TWC Connect</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.1/css/bootstrap.min.css" integrity="sha384-VCmXjywReHh4PwowAiWNagnWcLhlEJLA5buUprzK8rxFgeH0kww/aWY76TfkUoSX" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;900&family=Source+Sans+Pro:wght@300;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="{% static "events/main.css" %}">
 </head>
 <body>
-    <div class="jumbotron">
-        <center><h1 class="text-white">TWC Connect</h1>
-            <a href="/" class="btn btn-primary">Refresh Events</a>
-        </form>
-    </center>
-    </div>
-    <div class="container">
-        <h2 class="text-center title">Performing & Visual Arts</h2>
-        <br>
-        <div class="row">
-            {% for event in events %}
-                <div class="col-lg-6 col-sm-12">
-                    <div class="card mb-3 shadow p-3 mb-5 bg-white rounded">
-                        <div class="row no-gutters">
-                            <div class="col-md-4">
-                                <img style="height: 100%; width: 100%; object-fit: cover" src="{{event.event_image}}" class="card-img">
-                            </div>
-                            <div class="col-md-8">
-                                <div class="card-body">
-                                    <h5 class="card-title">{{event.event_title}}</h5>
-                                    <ul class="list-unstyled">
-                                        <li><strong>Time:</strong> {{event.event_time}}</li>
-                                        <li><strong>Location:</strong> {{event.event_location}}</li>
-                                    </ul>
-                                    <a class="btn btn-primary" href="{{event.event_url}}" role="button">Open Event</a>
+    <section class="jumbotron bgd shadow vertical-centre">
+        <div class="container">
+            <center><h1 class="text-white">Performing & Visual Arts</h1>
+                <a href="/" class="btn btn-default btn-lg">Go Home</a>
+            </center>
+        </div>
+    </section>
+    <section>
+        <div class="container">
+            <h2 class="text-center title">Events</h2>
+            <hr>
+            <div class="row">
+                {% for event in events %}
+                    <div class="col-lg-6 col-sm-12">
+                        <div class="card mb-3 shadow p-3 mb-5 bg-white rounded">
+                            <div class="row no-gutters">
+                                <div class="col-md-4">
+                                    <img style="height: 100%; width: 100%; object-fit: cover" src="{{event.event_image}}" class="card-img">
+                                </div>
+                                <div class="col-md-8">
+                                    <div class="card-body">
+                                        <h5 class="card-title">{{event.event_title}}</h5>
+                                        <ul class="list-unstyled">
+                                            <li><strong>Time:</strong> {{event.event_time}}</li>
+                                            <li><strong>Location:</strong> {{event.event_location}}</li>
+                                        </ul>
+                                        <a class="btn btn-primary" href="{{event.event_url}}" role="button">Open Event</a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-            {% endfor %}
+                {% endfor %}
+            </div>
         </div>
-</div>
+    </section>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.1/js/bootstrap.min.js" integrity="sha384-XEerZL0cuoUbHE4nZReLT7nx9gQrQreJekYhJD9WNWhH8nEW+0c5qq7aIo2Wl30J" crossorigin="anonymous"></script>
