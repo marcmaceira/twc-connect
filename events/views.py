@@ -2,10 +2,7 @@ from django.shortcuts import render
 import requests
 from bs4 import BeautifulSoup
 
-def index(req):
-    return render(req, 'events/index.html')
-
-def arts(req):
+def art(req):
     event_r = requests.get("https://www.eventbrite.com/d/dc--washington/free--arts--events--this-week/?page=1")
     event_soup = BeautifulSoup(event_r.content, 'html.parser')
 
