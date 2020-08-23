@@ -189,7 +189,10 @@ a.top:hover {
     margin-bottom: 10px;
 }
 
-footer {
+.footer {
     padding-bottom: 20px !important;
-    background: white;
+}
+
+.footer i {
+    color: var(--clr-dark);
 }
